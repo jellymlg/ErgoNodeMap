@@ -1,0 +1,35 @@
+html, body {
+    font-family: 'Arial';
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #04006c;
+    color: white;
+}
+#info {
+    width: 20%;
+    height: calc(100% - 2 * 5px);
+    float: left;
+    border: 5px solid white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: center;
+    background-color: #4500ff;
+}
+#chart {
+    width: calc(80% - 2 * 5px);
+    height: 100%;
+    float: right;
+}
+#search {
+    width: 80%;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+}
+#inspect {
+    display: none;
+}
