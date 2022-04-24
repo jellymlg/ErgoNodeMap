@@ -2,22 +2,29 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-        <title>Ergo Nodes</title>
+        <title>Ergo Node Map</title>
         <link rel="icon" href="img/erg_on.png">
         <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div id="info">
-            <h1>Ergo Nodes</h1>
+            <h1>Ergo Node Map</h1>
             <div id="default">
                 <input type="text" id="search" placeholder="Search node ip or name">
+                <div id="list"></div>
+                <div id="settings">
+                    <input type="text" id="source" placeholder="Data source node ip" value="213.239.193.208:9053">
+                    <label for="mode">Show only connected</label>
+                    <input type="checkbox" id="mode" checked>
+                </div>
             </div>
             <div id="inspect">
-
+                <div id="close"></div>
+                <div id="data"></div>
             </div>
         </div>
         <div id="chart"></div>

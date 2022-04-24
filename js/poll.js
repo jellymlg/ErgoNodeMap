@@ -18,15 +18,12 @@ async function poll() {
     .then(res => res.json())
     .then(out => raw = out)
     .catch(err => console.error(err));
-    console.log(raw);
     for(i in raw) {
         if(raw[i].address != "") {
             raw[i].address = raw[i].address.replace("/","").split(":")[0];
             data.connected[data.connected.length] = raw[i];
         }
     }
-
-    console.log(data);
 
     //post
     postMessage(data);
