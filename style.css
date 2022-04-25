@@ -34,7 +34,7 @@ input[type="text"] {
 }
 #source {
     font-size: 100%;
-    width: 50%;
+    width: 35%;
     height: 20px;
     padding: 10px;
 }
@@ -48,7 +48,7 @@ input[type="text"] {
     width: 90%;
 }
 #list div p {
-    text-align: left;
+    text-align: center;
     padding: 10px;
     margin: 0px;
 }
@@ -92,4 +92,7 @@ input[type="text"] {
     border-radius: 10px;
     margin: 15px;
     box-shadow: 5px 5px 5px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+input[type="checkbox"]:hover, input[type="button"]:hover {
+    cursor: pointer;
 }

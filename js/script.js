@@ -79,6 +79,19 @@ document.getElementById("close").addEventListener("click", function() {
     document.getElementById("data").innerHTML = "";
     document.getElementById("default").style.display = "";
 });
+document.getElementById("search").addEventListener("input", function() {
+    for(let i = 0; i < NODES.length; i++) filter(i, this.value);
+});
+document.getElementById("clear").addEventListener("click", function() {
+    if(confirm("Do you really want to clear the cache?")) {
+        CACHE = [];
+        window.location.href = window.location.href;
+    }
+});
+
+function filter(i, val) {
+    document.querySelectorAll("div[i=\"" + i + "\"]")[0].style.display = NODES[i].address.indexOf(val) > -1 || NODES[i].name.indexOf(val) > -1 ? "block" : "none";
+}
 
 function addNode(i) {
     if(addedIPs.includes(NODES[i].address)) return;
@@ -90,8 +103,8 @@ function addNode(i) {
         i: i
     });
     let elem = document.createElement("div"), name = document.createElement("p"), ip = document.createElement("p"), country = document.createElement("img");
-    name.innerText = "Name: " + NODES[i].name;
-    ip.innerText = "Address: " + NODES[i].address;
+    name.innerText = NODES[i].name;
+    ip.innerText = NODES[i].address;
     country.src = "img/country/" + NODES[i].countryCode.toLowerCase() + ".png";
     country.title = NODES[i].country;
     elem.appendChild(name);
@@ -100,6 +113,7 @@ function addNode(i) {
     elem.setAttribute("i", i);
     elem.addEventListener("click", function() {inspectElem(this.getAttribute("i"));});
     document.getElementById("list").appendChild(elem);
+    filter(i, document.getElementById("search").value);
 }
 
 function inspectElem(i) {
@@ -115,8 +129,8 @@ function inspectElem(i) {
     circle.animate({
         key: "scale",
         from: 1,
-        to: 5,
-        duration: 600,
+        to: 7,
+        duration: 800,
         easing: am5.ease.out(am5.ease.cubic),
         loops: Infinity
     });
@@ -124,7 +138,7 @@ function inspectElem(i) {
         key: "opacity",
         from: 1,
         to: 0,
-        duration: 600,
+        duration: 800,
         easing: am5.ease.out(am5.ease.cubic),
         loops: Infinity
     });
